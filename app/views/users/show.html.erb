@@ -1,0 +1,10 @@
+ <div class="contents" >
+    <p><%= @petname %>の成長日記一覧</p>
+    <% @diaries.each do |diary| %>
+      <div class="content_post" style="background-image: url(<%= diary.image %>);">
+        <%= simple_format(diary.text) %>
+        <span class="name"><%= diary.petname %></span>
+      </div>
+    <% end %>
+    <%= paginate(@diaries) %>
+  </div>

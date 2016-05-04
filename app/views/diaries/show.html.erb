@@ -1,0 +1,45 @@
+<div class ="contents">
+  <div class="content_post" style="background-image: url(<%= @diary.image %>);">
+    <% if user_signed_in? && current_user.id == @diary.user_id %>
+      <div class="more">
+<!--         <span><%= image_tag 'arrow_top.png' %></span> -->
+      <ul class="more_list">
+        <li>
+          <%= link_to '編集', "/diaries/#{@diary.id}/edit", method: :get %>
+        </li>
+        <li>
+          <%= link_to '削除', "/diaries/#{@diary.id}", method: :delete %>
+        </li>
+      </ul>
+    </div>
+    <% end %>
+    <%= simple_format(@diary.text) %>
+    <span class="name">
+      <a href="/users/<%= @diary.user.id %>">
+        <span>ペットネーム</span><%= @diary.user.petname %>
+      </a>
+    </span>
+  </div>
+</div>
+<div class="contents">
+    <!-- ここからフォーム -->
+    <% if current_user %>
+      <%= form_tag("/diaries/#{@diary.id}/reviews", method: :post) do %>
+        <textarea cols="30" name="text" placeholder="コメントする" rows="2"></textarea>
+        <input type="submit" value="SENT">
+      <% end %>
+    <% end %>
+
+    <div class="reviews">
+      <h4>＜コメント一覧＞</h4>
+      <% if @reviews %>
+        <% @reviews.each do |review| %>
+          <p>
+            <strong><%= link_to review.user.petname, "/users/#{review.user_id}" %>：</strong>
+            <%= review.text %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

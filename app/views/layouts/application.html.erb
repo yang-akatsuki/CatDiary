@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>猫の成長日記</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+
+<body>
+
+     <header class = "header">
+       <div  class = "header_bar">
+           <% if user_signed_in? %>
+               <div class = "user_navout">
+                 <span><%= current_user.petname %></span>
+                   <ul class = "user_info">
+                      <a href = "/users/<%= current_user.id %>">マイページ</a>
+                      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                      <a class = "post" href = "diaries/new">日記を書く</a>
+                   </ul>
+               </div>
+           <% else %>
+               <div class = "user_navin">
+                    <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+                    <%= link_to "新規登録", new_user_registration_path, class: 'post'%>
+               </div>
+           <% end %>
+       </div>
+
+       <!-- <div  class = "diary">
+       </div>
+
+       <div  class = "contents clearfix">
+           <div  class = "left_content">
+           </div>
+           <div  class = "right_content">
+           </div>
+           <div  class = "topics">
+           </div>
+       </div> -->
+
+     </header>
+
+
+     <%= yield %>
+
+     <footer>
+       <p>
+     Copyright All Reserved CatDiary 2016.
+       </p>
+     </footer>
+
+
+</body>
+</html>

@@ -23,11 +23,12 @@ ActiveRecord::Schema.define(version: 20160427084635) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.text     "review",     limit: 65535
     t.integer  "user_id",    limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.string   "petname",    limit: 255
+    t.integer  "diary_id",   limit: 4
+    t.text     "text",       limit: 65535
   end
 
   create_table "users", force: :cascade do |t|

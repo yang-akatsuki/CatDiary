@@ -11,10 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160504093402) do
+ActiveRecord::Schema.define(version: 20160506020024) do
 
   create_table "diaries", force: :cascade do |t|
-    t.string   "nickname",   limit: 255
     t.text     "text",       limit: 65535
     t.text     "image",      limit: 65535
     t.datetime "created_at",               null: false
@@ -24,11 +23,12 @@ ActiveRecord::Schema.define(version: 20160504093402) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.text     "review",     limit: 65535
     t.integer  "user_id",    limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.string   "petname",    limit: 255
+    t.integer  "diary_id",   limit: 4
+    t.text     "text",       limit: 65535
   end
 
   create_table "users", force: :cascade do |t|

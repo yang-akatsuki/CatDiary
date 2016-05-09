@@ -10,6 +10,8 @@ h1,h2,h3,h4,h5,h6,p {
 }
 
 
+
+
 .header_bar {
   text-align: right;
   padding-right: 50px;
@@ -53,14 +55,40 @@ h2 {
 
 .left_content {
   height: 600px;
-  width: 800px;
-  background-color: lightblue;
+  width: 900px;
+  background-color: #E2CACD;
   float: left;
+  padding: 50px;
+}
+
+.content_post {
+  height: 250px;
+  width: 250px;
+  margin: 10px;
+  float: left;
+}
+
+.formcontents{
+  padding: 100px 270px;
+  background-color: #E2CACD;
+}
+
+input {
+   height: 50px;
+   width: 700px;
+   border:solid 3px #EEA34A;
+   margin-bottom: 50px;
+}
+
+textarea {
+  height: 500px;
+  width: 700px;
+  border:solid 3px #EEA34A;
 }
 
 .right_content {
   height: 600px;
-  width: 400px;
+  width: 300px;
   background-color: lightpink;
   float: left;
 }

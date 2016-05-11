@@ -4,7 +4,9 @@ before_action :move_to_index, except: :index
 
   def index
     @diaries = Diary.includes(:user).page(params[:page]).per(9).order("created_at DESC")
+    @twitter_posts = Diary.fetch_twitter
   end
+
 
   def new
   end

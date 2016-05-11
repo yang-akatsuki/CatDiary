@@ -1,4 +1,5 @@
 <div class ="contents">
+
   <div class="content_post" style="background-image: url(<%= @diary.image %>);">
 
     <% if user_signed_in? && current_user.id == @diary.user_id %>
@@ -14,24 +15,23 @@
       </ul>
     </div>
     <% end %>
+      <a href="/users/<%= @diary.user.id %>"></a>
+
   </div>
 
-    <%= simple_format(@diary.text) %>
-    <span class="name">
-      <a href="/users/<%= @diary.user.id %>">
-        <span>ペットネーム</span><%= @diary.user.petname %>
-      </a>
-    </span>
-  </div>
-</div>
+  <div class = "post_text"><%= simple_format(@diary.text) %></div>
+
 </br>
 
 <div class = "comments">
     <!-- ここからフォーム -->
+
     <% if current_user %>
       <%= form_tag("/diaries/#{@diary.id}/reviews", method: :post) do %>
         <textarea cols="30" name="text" placeholder="コメントする" rows="2"></textarea>
+      <div class = "action">
         <input type="submit" value="SENT">
+      </div>
       <% end %>
     <% end %>
 
@@ -40,7 +40,7 @@
       <% if @reviews %>
         <% @reviews.each do |review| %>
           <p>
-            <strong><%= link_to review.user.petname, "/users/#{review.user_id}" %>：</strong>
+            <%= link_to review.user.petname, "/users/#{review.user_id}" %>：
             <%= review.text %>
           </p>
         <% end %>

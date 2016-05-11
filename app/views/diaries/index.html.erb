@@ -15,11 +15,10 @@
   <div class = "col-lg-3">
         <% @diaries.each do |diary| %>
           <div class="content_post" >
-          <div class="content_image" style="background-image: url(<%= diary.image %>);background-size: 250px 250px;">
-          </div>
+          <div class="content_image" style="background-image: url(<%= diary.image %>);background-size: 250px 250px;"></div>
           <hr />
           <div class="more">
-          <span><%= image_tag 'arrow.png' %></span>
+             <span><%= image_tag 'arrow.png' %></span>
              <ul class=" more_list">
               <li>
                 <%= link_to '詳細', "/diaries/#{diary.id}", method: :get %>
@@ -32,8 +31,8 @@
                 <%= link_to '削除', "/diaries/#{diary.id}", method: :delete %>
                </li>
               </ul>
-             </div>
-        <% end %>
+          </div>
+
           <div class = text_post>
             <p><%= simple_format(diary.text) %></p>
           </div>
@@ -42,10 +41,22 @@
               <span><%= diary.user.petname %></span>
             </a>
           </span>
+          <% end %>
           </div>
           <% end %>
        </div>
-     </div>
    </div>
    </div>
+   </div>
+
+<div class = "cat_twitter">
+   <p>〜みんなのCatツイートを見てみよう〜<p>
+   <div class = "twitter_post">
+         <%= @twitter_posts.each do |post| %>
+         <%= post.text %>
+         <% end %>
+   </div>
+</div>
+
+
 </article>

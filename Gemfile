@@ -58,8 +58,9 @@ group :production, :staging do
 end
 
 
-gem 'instagram'
 
 gem 'carrierwave'
 
 gem 'paperclip'
+
+gem 'twitter'

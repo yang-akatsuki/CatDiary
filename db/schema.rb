@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509055521) do
+ActiveRecord::Schema.define(version: 20160510094446) do
 
   create_table "diaries", force: :cascade do |t|
     t.text     "text",       limit: 65535
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20160509055521) do
     t.datetime "updated_at",               null: false
     t.integer  "user_id",    limit: 4
     t.string   "petname",    limit: 255
+    t.integer  "year",       limit: 4
+    t.integer  "month",      limit: 4
   end
 
   create_table "reviews", force: :cascade do |t|

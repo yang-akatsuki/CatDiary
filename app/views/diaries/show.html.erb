@@ -1,8 +1,9 @@
 <div class ="contents">
   <div class="content_post" style="background-image: url(<%= @diary.image %>);">
+
     <% if user_signed_in? && current_user.id == @diary.user_id %>
-      <div class="more">
-<!--         <span><%= image_tag 'arrow_top.png' %></span> -->
+    <div class="more">
+    <span><%= image_tag 'arrow.png' %></span>
       <ul class="more_list">
         <li>
           <%= link_to '編集', "/diaries/#{@diary.id}/edit", method: :get %>
@@ -13,6 +14,8 @@
       </ul>
     </div>
     <% end %>
+  </div>
+
     <%= simple_format(@diary.text) %>
     <span class="name">
       <a href="/users/<%= @diary.user.id %>">
@@ -21,7 +24,9 @@
     </span>
   </div>
 </div>
-<div class="contents">
+</br>
+
+<div class = "comments">
     <!-- ここからフォーム -->
     <% if current_user %>
       <%= form_tag("/diaries/#{@diary.id}/reviews", method: :post) do %>

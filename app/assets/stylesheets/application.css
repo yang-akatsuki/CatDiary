@@ -1,11 +1,35 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require bootstrap
+ *= require_tree .
+ *= require_self
+ */
+
+
+
 body {
-  background-color: #f0f0f0;
+
+background: #EECDA3; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #EECDA3 , #EF629F); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #EECDA3 , #EF629F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   font-size: 14px;
   color: #333;
   margin: 0 auto;
 }
+
 h1,h2,h3,h4,h5,h6,p {
-  padding: 10px 0;
+  padding: 0px 0;
   margin: 0;
 }
 
@@ -16,56 +40,74 @@ h1,h2,h3,h4,h5,h6,p {
 .header_bar {
   text-align: right;
   padding-top: 15px;
-  padding-right: 50px;
-  height: 45px;
-  background-color: pink;
+  padding-right: 30px;
+  height: 60px;
+  background: #EECDA3; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #EECDA3 , #EF629F); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #EECDA3 , #EF629F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  width: 100%
+}
+
+.user_navout span{
+  float:left;
+  padding-left: 50px;
+  font-family: serif;
+  font-size: 25px;
+  color: white;
 }
 
 a.post {
-
   text-decoration: none;
   font-size: 17px;
-  border: 3px solid #EEA34A;
-  background-color: #fff;
-  color: #EEA34A;
+  border: 3px solid white;
+  color: white;
   border-radius: 5px;
-  padding: 10px;
+  padding: 5px;
 }
 
 
-/*.diary {
-  height: 300px;
-  background-color: #BFBED5;
-}*/
-
 .diary {
-  background-color: #B68E52;
+  background: #EECDA3; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #EECDA3 , #EF629F); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #EECDA3 , #EF629F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   height: 310px;
-  background-image: url(cat1.png);
+  background-image: url(camera.png);
   background-repeat: no-repeat;
   background-position: center;
 }
 
+.formcontents {
+  background: #EECDA3; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #EECDA3 , #EF629F); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #EECDA3 , #EF629F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#hp_title h2{
+  font-family: serif;
+  font-size: 50px;
+  color: white;
+  text-align: center;
+  opacity: 1;
+}
+
+
 h1 {
-  padding: 50px;
-  padding-left: 150px;
+  text-align: center;
+  padding: 100px 100px 0 100px;
   font-family: "游ゴシック", "YuGothic";
-  font-size: 30px;
+  font-size: 20px;
   color: white;
 }
 
-/*h2 {
-  padding-left: 150px;
-  font-family: impact;
-  font-size: 500% ;
-  color: white;
-}*/
+
 
 h2 {
   text-align: center;
   font-family: impact;
-  font-size: 400% ;
-  color: #EEA34A;
+  font-size: 300% ;
+  color: white;
+  opacity: 0.5;
+  padding: 20px;
 }
 
 
@@ -74,21 +116,46 @@ h2 {
 }
 
 .left_content {
-  height: 600px;
-  background-color: #E0DCDD;
+  height: 900px;
+  background: #EECDA3; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #EECDA3 , #EF629F); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #EECDA3 , #EF629F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.content_post {
+.content_post{
+  height: 400px;
+  width: 300px;
+  background-color: white;
+  margin: 5px 5px 20px 5px;
+}
+
+.content_image {
   height: 250px;
   width: 250px;
   margin: 10px;
-  float: left;
+}
+
+.text_post{
+  background-color: black;
+  opacity: 0.3;
+}
+
+.text_post p{
+  text-align: left;
+}
+
+.user_name{
+  position:absolute;
+  right: 5px;
+  bottom:20px
 }
 
 .formcontents{
   padding: 100px 270px;
   background-color: #E0DCDD;
 }
+
+
 
 input {
    height: 50px;
@@ -112,6 +179,10 @@ textarea {
 
 
 footer {
+  background: #EECDA3; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #EECDA3 , #EF629F); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #EECDA3 , #EF629F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   height: 50px;
   background-color: pink;
 }
@@ -140,6 +211,27 @@ text-align: center;
   padding:0px 270px 0px 270px;
 }
 
+.field label {
+  font-size: 20px;
+  opacity: 0.7;
+}
+
+#user_remember_me {
+  position      : relative;
+  display       : inline-block;
+  width         : 15px;
+  height        : 15px;
+  border        : 1px solid #black;
+  border-radius : 100%;
+  overflow      : hidden;
+  cursor        : pointer;
+}
+
 .actions {
   padding: 0px 270px;
+  font-size: 20px;
+  opacity: 0.7;
+  font-weight: bold;
 }
+
+

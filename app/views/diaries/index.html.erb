@@ -1,49 +1,51 @@
-<!-- <div class = "header_bar">
-  <ul>
-     <li>
-     </li>
-  </ul>
-</div> -->
-
-<div  class = "diary">
-    <h1>猫の成長を毎日記録しよう</h1>
-    <h2>Cat     Diary<h2>
-    <div class = "image">
-
+<article>
+  <div  class = "diary">
+    <div class = "row">
+     <div id = "hp_title" class = "col-lg-12">
+      <h1>〜猫の成長を毎日記録しよう〜</h1>
+      <h2>Cat     Diary<h2>
+      <div class = "hp_image"></div>
     </div>
+    </div>
+  </div>
 
-</div>
 
-   <div  class = "contents clearfix">
-
-      <div  class = "left_content">
-
-           <% @diaries.each do |diary| %>
-        <div class="content_post" style="background-image: url(<%= diary.image %>);">
-        <div class="select">
-           <ul class="select_list">
-            <li>
-              <%= link_to '詳細', "/diaries/#{diary.id}", method: :get %>
-            </li>
-            <% if user_signed_in? && current_user.id == diary.user_id %>
-             <li>
-              <%= link_to '編集', "/diaries/#{diary.id}/edit", method: :get %>
-             </li>
-             <li>
-              <%= link_to '削除', "/diaries/#{diary.id}", method: :delete %>
-             </li>
-             </ul>
-           </div>
+  <div  class = "contents clearfix">
+  <div  class = "left_content">
+  <div class = "col-lg-3">
+        <% @diaries.each do |diary| %>
+          <div class="content_post" >
+          <div class="content_image" style="background-image: url(<%= diary.image %>);background-size: 250px 250px;">
+          </div>
+          <hr />
+          <div class="more">
+          <span><%= image_tag 'arrow.png' %></span>
+             <ul class=" more_list">
+              <li>
+                <%= link_to '詳細', "/diaries/#{diary.id}", method: :get %>
+              </li>
+              <% if user_signed_in? && current_user.id == diary.user_id %>
+               <li>
+                <%= link_to '編集', "/diaries/#{diary.id}/edit", method: :get %>
+               </li>
+               <li>
+                <%= link_to '削除', "/diaries/#{diary.id}", method: :delete %>
+               </li>
+              </ul>
+             </div>
         <% end %>
-          <p><%= simple_format(diary.text) %></p>
-        <span class="name">
-          <a href="">
-            <span><%= diary.user.petname %></span>
-          </a>
-        </span>
-        </div>
-        <% end %>
+          <div class = text_post>
+            <p><%= simple_format(diary.text) %></p>
+          </div>
+          <span class="user_name">
+            <a href="">
+              <span><%= diary.user.petname %></span>
+            </a>
+          </span>
+          </div>
+          <% end %>
+       </div>
      </div>
-
-
    </div>
+   </div>
+</article>

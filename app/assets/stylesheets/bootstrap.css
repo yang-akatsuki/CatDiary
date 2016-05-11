@@ -66,10 +66,10 @@ strong {
 dfn {
   font-style: italic;
 }
-h1 {
+/*h1 {
   font-size: 2em;
   margin: 0.67em 0;
-}
+}*/
 mark {
   background: #ff0;
   color: #000;
@@ -234,16 +234,16 @@ th {
   img {
     max-width: 100% !important;
   }
-  p,
+/*  p,
   h2,
   h3 {
     orphans: 3;
     widows: 3;
-  }
-  h2,
+  }*/
+/*  h2,
   h3 {
     page-break-after: avoid;
-  }
+  }*/
   .navbar {
     display: none;
   }

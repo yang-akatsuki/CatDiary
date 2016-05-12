@@ -1,6 +1,8 @@
  <div class="contents" >
      <div class = "user_image"><%= image_tag current_user.avatar %></div>
+     <div class = "user_show">
      <p><%= @petname %>の成長日記一覧</p>
+     </div>
     <% @diaries.each do |diary| %>
       <div class="content_post" style="background-image: url(<%= diary.image %>);">
         <%= simple_format(diary.text) %>

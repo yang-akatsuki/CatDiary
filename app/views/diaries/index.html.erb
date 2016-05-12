@@ -1,18 +1,28 @@
 <article>
-  <div  class = "diary">
-    <div class = "row">
-     <div id = "hp_title" class = "col-lg-12">
-      <h1>〜猫の成長を毎日記録しよう〜</h1>
-      <h2>Cat     Diary<h2>
-      <div class = "hp_image"></div>
-    </div>
-    </div>
-  </div>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img class="img-responsive" src="profile.png" alt="">
+                    <div class="intro-text">
+                        <span class="name">Cat Diary</span>
+                        <hr class="star-light">
+                        <span class="skills">猫の成長を毎日記録しよう</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
+  <section id="portfolio">
+          <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>最新の投稿一覧</h2>
+                    <hr class="star-primary">
+                </div>
+          </div>
 
-  <div  class = "contents clearfix">
-  <div  class = "left_content">
-  <div class = "col-lg-3">
         <% @diaries.each do |diary| %>
           <div class="content_post" >
           <div class="content_image" style="background-image: url(<%= diary.image %>);background-size: 250px 250px;"></div>
@@ -40,6 +50,8 @@
             <a href="">
               <span><%= diary.user.petname %></span>
             </a>
+            <p><%= diary.year %>歳</p>
+            <p><%= diary.month %>ヶ月</p>
           </span>
           <% end %>
           </div>
@@ -51,9 +63,21 @@
 
 <div class = "cat_twitter">
    <p>〜みんなのCatツイートを見てみよう〜<p>
-   <div class = "twitter_post">
-         <%= @twitter_posts.each do |post| %>
-         <%= post.text %>
+   <div>
+         <% @twitter_posts.each do |post| %>
+         <% if post.media.present? %>
+           <%= image_tag post.user.profile_image_url %>
+           <%= post.text %>
+           <%= post.retweet_count %>
+           <br>
+           <%= image_tag post.media[0].media_url.to_s %>
+         <% else %>
+           <%= image_tag post.user.profile_image_url %>
+           <%= post.text %>
+           <%= post.retweet_count %>
+         <% end %>
+
+         <br>
          <% end %>
    </div>
 </div>

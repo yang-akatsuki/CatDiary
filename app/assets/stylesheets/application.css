@@ -37,7 +37,7 @@ h1,h2,h3,h4,h5,h6,p {
 /*ヘッダーのボタン
 */
 
-.header_bar {
+/*.header_bar {
   text-align: right;
   padding-top: 15px;
   padding-right: 30px;
@@ -46,7 +46,7 @@ h1,h2,h3,h4,h5,h6,p {
   background: -webkit-linear-gradient(to left, #EECDA3 , #EF629F); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #EECDA3 , #EF629F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   width: 100%
-}
+}*/
 
 .user_navout span{
   float:left;
@@ -56,7 +56,7 @@ h1,h2,h3,h4,h5,h6,p {
   color: white;
 }
 
-a.post {
+/*a.post {
   text-decoration: none;
   font-size: 17px;
   border: 3px solid white;
@@ -64,7 +64,7 @@ a.post {
   border-radius: 5px;
   padding: 5px;
 }
-
+*/
 
 .diary {
   background: #EECDA3; /* fallback for old browsers */

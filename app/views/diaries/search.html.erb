@@ -1,0 +1,36 @@
+<div class="blueBackground">
+  <div id = "log" class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h2>投稿する作品を検索
+        </h2>
+        <div class= "form_contents" style="padding-top: 50px">
+          <%= form_tag('/diaries/search', method: :get) do %>
+          <input name="keyword" placeholder="作品名で検索" type="text" value=""><br>
+          <button class="btn_search" title="検索" type="submit"></button></input>
+          <% end %>
+          <form accept-charset="utf-8" action="/" class="js-search-submit" method="get">
+          </form>
+        </div>
+        <br>
+
+        <h2>
+        検索結果
+        </h2>
+        <hr class="star-primary">
+        <div class="row">
+          <% @diaries.each do |diary| %>
+          <div class="col-sm-4 portfolio-item" style="">
+            <a class="searchText" href="/diaries/<%= diary.id %>" title="<%= diary.petname %>">
+              <img class="img-responsive" alt="" src="<%=diary.image %>"/>
+              <h3>
+              <span><%= diary.petname %></span>
+              </h3>
+            </a>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

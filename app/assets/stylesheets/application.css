@@ -17,16 +17,13 @@
 
 
 
-body {
-
-background: #EECDA3; /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #EECDA3 , #EF629F); /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #EECDA3 , #EF629F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+/*body {
   font-size: 14px;
-  color: #333;
+  background: #EECDA3; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #EECDA3 , #EF629F);  Chrome 10-25, Safari 5.1-6 
+  background: linear-gradient(to left, #EECDA3 , #EF629F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   margin: 0 auto;
-}
+}*/
 
 h1,h2,h3,h4,h5,h6,p {
   padding: 0px 0;
@@ -48,13 +45,17 @@ h1,h2,h3,h4,h5,h6,p {
   width: 100%
 }*/
 
-.user_navout span{
+/*.user_navout span{
   float:left;
   padding-left: 50px;
   font-family: serif;
   font-size: 25px;
   color: white;
 }
+
+.cat_twitter {
+
+}*/
 
 /*a.post {
   text-decoration: none;
@@ -66,7 +67,33 @@ h1,h2,h3,h4,h5,h6,p {
 }
 */
 
-.diary {
+.btn-pagetop.btn--show {
+    pointer-events: auto;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    -ms-opacity: 1;
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+.btn-pagetop {
+    pointer-events: none;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    -ms-opacity: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 70;
+    -webkit-transition: all .2s ease-in;
+    -moz-transition: all .2s ease-in;
+    -ms-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
+
+/*.diary {
   background: #EECDA3; /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #EECDA3 , #EF629F); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #EECDA3 , #EF629F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -74,12 +101,10 @@ h1,h2,h3,h4,h5,h6,p {
   background-image: url(camera.png);
   background-repeat: no-repeat;
   background-position: center;
-}
+}*/
 
-.formcontents {
-  background: #EECDA3; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #EECDA3 , #EF629F); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #EECDA3 , #EF629F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/*.form_contents {
+padding-top: 50px;
 }
 
 #hp_title h2{
@@ -88,20 +113,20 @@ h1,h2,h3,h4,h5,h6,p {
   color: white;
   text-align: center;
   opacity: 1;
-}
+}*/
 
 
-h1 {
+/*h1 {
   text-align: center;
   padding: 100px 100px 0 100px;
   font-family: "游ゴシック", "YuGothic";
   font-size: 20px;
   color: white;
-}
+}*/
 
 
 
-h2 {
+/*h2 {
   text-align: center;
   font-family: impact;
   font-size: 300% ;
@@ -109,19 +134,19 @@ h2 {
   opacity: 0.5;
   padding: 20px;
 }
+*/
 
-
-.contents {
+/*.contents {
   background: #EECDA3; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #EECDA3 , #EF629F); /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to left, #EECDA3 , #EF629F);  Chrome 10-25, Safari 5.1-6 
   background: linear-gradient(to left, #EECDA3 , #EF629F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
+}*/
 
-.left_content {
+/*.left_content {
   background: #EECDA3; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #EECDA3 , #EF629F); /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to left, #EECDA3 , #EF629F);  Chrome 10-25, Safari 5.1-6 
   background: linear-gradient(to left, #EECDA3 , #EF629F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
+}*/
 
 
 
@@ -129,22 +154,22 @@ h2 {
   height: 400px;
   width: 300px;
   background-color: white;
-  margin: 5px 5px 20px 5px;
+  padding: 5px 5px 5px 5px;
+  float: left;
 }
 
 .content_image {
-  height: 250px;
-  width: 250px;
-  margin: 10px;
+  height: 300px;
+  width: 300px;
 }
 
 .text_post{
-  background-color: black;
-  opacity: 0.3;
+  padding: 5px 0 0 0;
 }
 
 .text_post p{
   text-align: left;
+  color: black;
 }
 
 .user_name{
@@ -153,36 +178,69 @@ h2 {
   bottom:20px
 }
 
-.formcontents{
-  padding: 100px 270px;
+/*.formcontents{
   background-color: #E0DCDD;
-}
+}*/
 
 
 
 input {
-   height: 50px;
-   width: 700px;
-   border:solid 3px #EEA34A;
-   margin-bottom: 50px;
+  width: 500px;
+  height: 60px;
+  margin-bottom: 50px;
+  color: black;
+  font-size: larger;
+  opacity: 0.9;
 }
 
 textarea {
-  height: 500px;
-  width: 700px;
+  width: 500px;
   border:solid 3px #EEA34A;
+  margin-bottom: 50px;
+  color: black;
 }
 
 
+.select_join {
 
-footer {
+  margin: auto;
+  width: 170px;
+  height: 28px;
+  overflow: hidden;
+  background: url('http://s24.postimg.org/lyhytocf5/dropdown.png') no-repeat right #FEFEFE;
+  border: #FEFEFE 1px solid;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0px 0px 10px 1px #FEFEFE;
+  box-shadow: inset 0px 0px 10px 1px #FEFEFE;
+}
+.select_join select {
+  background: transparent;
+  width: 170px;
+  font-size:7pt;
+  color:grey;
+  border: 0;
+  border-radius: 0;
+  height: 28px;
+  -webkit-appearance: none;
+}
+.select_join select:focus {
+  outline: none;
+}
+
+#log {
+  height: 1680px;
+  padding-top: 150px;
+}
+
+/*footer {
   background: #EECDA3; /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #EECDA3 , #EF629F); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #EECDA3 , #EF629F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   height: 50px;
   background-color: pink;
-}
+}*/
 
 p {
 color: white;
@@ -190,26 +248,23 @@ text-align: center;
 }
 
 
-.clearfix:after {
+/*.clearfix:after {
   content: "";
   clear: both;
   display: block;
 }
-
+*/
 
 
 /*削除画面のCSS*/
-.success {
+/*.success {
   text-align: center;
 }
-
+*/
 /*サインアップ*/
-.field {
-  padding:0px 270px 0px 270px;
-}
+
 
 .field label {
-  font-size: 20px;
   opacity: 0.7;
 }
 
@@ -225,31 +280,113 @@ text-align: center;
 }
 
 .actions {
-  padding: 0px 270px;
   font-size: 20px;
   opacity: 0.7;
   font-weight: bold;
 }
 
 /*レビューページ*/
-.reviews h4{
+/*.reviews h4{
 color: white;
 text-align: center;
 padding: 0 0 50px 0;
-}
+}*/
 
-.comments textarea{
+/*.comments textarea{
   height: 200px;
   width: 700px;
   border:solid 3px #EEA34A;
-}
+}*/
 
-.comments {
+/*.comments {
   padding:0px 270px 0px 270px;
-}
+}*/
 
 .action {
   font-size: 20px;
   opacity: 0.7;
   font-weight: bold;
+}
+
+
+.catLogo{
+
+  width:100px;
+
+
+}
+
+.blueBackground{
+  background-color: #18bc9c;
+  text-align:center;
+
+}
+
+.newContent{
+  /*padding-top: 200px;*/
+  width: 100%;
+  height:100%;
+  overflow-x: hidden;
+}
+
+.buttonSEND{
+  font-weight: bold;
+  font-size: 25px;
+  color:white;
+}
+
+.contentTitle{
+  font-size: 1.75em;
+  font-weight: 300;
+  color:white;
+  padding-bottom: 20px;
+}
+
+.searchText {
+  color: white;
+}
+
+.btn_search {
+    background: url(glyphicons-28-search.png);
+    padding-left: 27px;
+    padding-top: 16px;
+    padding-right: 19px;
+    padding-bottom: 31px;
+    speak: none;
+    height: 45px;
+    border: none;
+    margin-bottom: 30px;
+}
+
+.btnSave {
+  color:white;
+  font-size: 28px;
+}
+
+.success {
+  padding-top: 50px;
+}
+
+.cat_twitter {
+    padding-bottom: 30px;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: solid;
+    margin: 5px;
+    background: skyblue;
+    width: 100%;
+}
+
+.catTwitterimage {
+  width: 100%;
+}
+
+.pagination {
+  width: 100%;
+  text-align: center;
+}
+
+.userAvatarimage {
+  width: 20%;
 }

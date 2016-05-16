@@ -10,7 +10,7 @@ class Diary < ActiveRecord::Base
       config.access_token_secret = 'x2JshC7ZbBY1DzZvWJwOzdthZKhfUqTlFRPFzMXUO46Yj'
     end
 
-    limit   = 10
+    limit = 10
     tag = "cat"
     tmp=[]
     client.search("##{tag}", lang: 'ja', result_type: 'recent', count: 1).take(limit).map do |tweet|

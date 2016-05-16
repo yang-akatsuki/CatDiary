@@ -1,51 +1,69 @@
 
-<div  class = "diary">
-</div>
+<div class="newContent blueBackground">
+  <div id="log" class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <img class="img-responsive" src="profile.png" alt="">
+        <div class="intro-text">
+          <hr class="star-light">
+          <div class="contentTitle"><span class="">猫の成長を記録しよう</span></div>
+          <%= form_tag('/diaries', method: :post) do %>
+          <input placeholder="Image Url" type="text" name="image"><br>
+          <textarea cols="30" name="text" placeholder="text" rows="10"></textarea><br>
+          <div style="">
+          <div class="row">
+          <p>猫ちゃんの年齢を入れてくださいね</p>
+          <div class="select_join">
+            <select name = "year">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+            </select>
+          </div>
 
-<div class="formcontents">
-    <%= form_tag('/diaries', method: :post) do %>
+        </div>
+          <div>歳</div>
+        </div>
 
-      <input placeholder="Image Url" type="text" name="image"><br>
-
-      <textarea cols="30" name="text" placeholder="text" rows="10"></textarea><br>
-
-    <p>猫ちゃんの年齢を入れてくださいね</p>
-      <select name = "year">
-          <option value="0">0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-          <option value="11">11</option>
-          <option value="12">12</option>
-          <option value="13">13</option>
-          <option value="14">14</option>
-          <option value="15">15</option>
-          <option value="16">16</option>
-          <option value="17">17</option>
-      </select><p>歳</p>
-      <select name = "month">
-          <option value="0">0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-          <option value="11">11</option>
-          <option value="12">12</option>
-      </select><p>ヶ月</p>
-      <input type="submit" value="SENT">
-    <% end %>
+          <div class="select_join">
+            <select name = "month">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+            </select>
+          </div>
+          <p>ヶ月</p>
+          <input class="buttonSEND" type="submit" value="SENT">
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+</div>
 </div>

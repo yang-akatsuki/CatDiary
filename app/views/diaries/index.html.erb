@@ -1,86 +1,96 @@
-<article>
-    <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <img class="img-responsive" src="profile.png" alt="">
-                    <div class="intro-text">
-                        <span class="name">Cat Diary</span>
-                        <hr class="star-light">
-                        <span class="skills">猫の成長を毎日記録しよう</span>
-                    </div>
-                </div>
-            </div>
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <img class="img-responsive catLogo" src="assets/camera.png" alt="">
+        <div class="intro-text">
+          <span class="name">Cat Diary</span>
+          <hr class="star-light">
+          <span class="skills">猫の成長を毎日記録しよう</span>
         </div>
-    </header>
+      </div>
+    </div>
+  </div>
+</header>
 
-  <section id="portfolio">
-          <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>最新の投稿一覧</h2>
-                    <hr class="star-primary">
-                </div>
+<!-- ユーザーの投稿 -->
+<section id="portfolio">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2>最新の投稿一覧</h2>
+        <hr class="star-primary">
+      </div>
+    </div>
+    <div class="row">
+      <% @diaries.each do |diary| %>
+      <div class="col-sm-4 portfolio-item" style="">
+        <a href="/diaries/#{diary.id}" class="portfolio-link" data-toggle="modal">
+          <div class="caption">
+            <div class="caption-content">
+              <i class="fa fa-search-plus fa-3x"></i>
+            </div>
           </div>
-
-        <% @diaries.each do |diary| %>
-          <div class="content_post" >
-          <div class="content_image" style="background-image: url(<%= diary.image %>);background-size: 250px 250px;"></div>
-          <hr />
+          <img class="img-responsive" alt="" src="<%=diary.image %>" style="height:300px"/></a>
+          <hr>
+          <div class = "text_post">
+            <%= simple_format(diary.text) %>
+          </div>
+          <span class="user_name">
+            <a href="/users/<%= current_user.id %>">
+              <span><%= diary.user.petname %></span>
+            </a>
+            <p><%= diary.year %>歳<%= diary.month %>ヶ月</p>
+          </span>
           <div class="more">
-             <span><%= image_tag 'arrow.png' %></span>
-             <ul class=" more_list">
+            <span><%= image_tag 'arrow.png' %></span>
+            <ul class=" more_list" style="list-style:none;">
               <li>
                 <%= link_to '詳細', "/diaries/#{diary.id}", method: :get %>
               </li>
               <% if user_signed_in? && current_user.id == diary.user_id %>
-               <li>
+              <li>
                 <%= link_to '編集', "/diaries/#{diary.id}/edit", method: :get %>
-               </li>
-               <li>
+              </li>
+              <li>
                 <%= link_to '削除', "/diaries/#{diary.id}", method: :delete %>
-               </li>
-              </ul>
+              </li>
+            </ul>
+            <% end %>
           </div>
+      </div>
+      <% end %>
+      <%= paginate(@diaries) %>
+    </div>
+  </section>
 
-          <div class = text_post>
-            <p><%= simple_format(diary.text) %></p>
+
+  <!-- <ツイッターのコンテンツ> -->
+  <section class="success" id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2>〜みんなの#catツイート〜</h2>
+          <hr class="star-light">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 portfolio-item" style="">
+          <% @twitter_posts.each do |post| %>
+          <div class="cat_twitter">
+            <% if post.media.present? %>
+            <%= image_tag post.user.profile_image_url %>
+            <%= post.text %>
+            <br>
+            <%= image_tag post.media[0].media_url.to_s, class: "catTwitterimage"%>
+            <% else %>
+            <%= image_tag post.user.profile_image_url %>
+            <%= post.text %>
+            <% end %>
+            <br>
           </div>
-          <span class="user_name">
-            <a href="">
-              <span><%= diary.user.petname %></span>
-            </a>
-            <p><%= diary.year %>歳</p>
-            <p><%= diary.month %>ヶ月</p>
-          </span>
           <% end %>
-          </div>
-          <% end %>
-       </div>
-   </div>
-   </div>
-   </div>
-
-<div class = "cat_twitter">
-   <p>〜みんなのCatツイートを見てみよう〜<p>
-   <div>
-         <% @twitter_posts.each do |post| %>
-         <% if post.media.present? %>
-           <%= image_tag post.user.profile_image_url %>
-           <%= post.text %>
-           <%= post.retweet_count %>
-           <br>
-           <%= image_tag post.media[0].media_url.to_s %>
-         <% else %>
-           <%= image_tag post.user.profile_image_url %>
-           <%= post.text %>
-           <%= post.retweet_count %>
-         <% end %>
-
-         <br>
-         <% end %>
-   </div>
-</div>
-
-
-</article>
+        </div>
+      </div>
+    </div>
+  </section>

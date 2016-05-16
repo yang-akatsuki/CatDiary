@@ -203,6 +203,11 @@ section.success a.active {
     }
 }
 
+.content_post {
+float: left;
+padding: 40px;
+}
+
 #portfolio .portfolio-item {
     right: 0;
     margin: 0 0 15px;

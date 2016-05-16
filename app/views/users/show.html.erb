@@ -1,13 +1,45 @@
- <div class="contents" >
-     <div class = "user_image"><%= image_tag current_user.avatar %></div>
-     <div class = "user_show">
-     <p><%= @petname %>の成長日記一覧</p>
-     </div>
-    <% @diaries.each do |diary| %>
-      <div class="content_post" style="background-image: url(<%= diary.image %>);">
-        <%= simple_format(diary.text) %>
-        <span class="name"><%= diary.petname %></span>
+<div class="blueBackground">
+  <div id="log" class="container" style="padding-top: 150px">
+
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <%= image_tag current_user.avatar, class: "userAvatarimage"%>
+        <h2><%= @petname %>の成長日記一覧</h2>
+        <hr class="star-primary">
       </div>
-    <% end %>
-    <%= paginate(@diaries) %>
+    </div>
+    <div class="row">
+      <% @diaries.each do |diary| %>
+      <div class="col-sm-4 portfolio-item" style="">
+        <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+          <div class="caption">
+            <div class="caption-content">
+              <i class="fa fa-search-plus fa-3x"></i>
+            </div>
+          </div>
+          <img class="img-responsive" alt="" src="<%=diary.image %>"/>
+            <p><%= diary.year %>歳</p>
+            <p><%= diary.month %>ヶ月</p>
+          <div class="more">
+            <span><%= image_tag 'arrow.png' %></span>
+            <ul class=" more_list">
+              <li>
+                <%= link_to '詳細', "/diaries/#{diary.id}", method: :get %>
+              </li>
+              <% if user_signed_in? && current_user.id == diary.user_id %>
+              <li>
+                <%= link_to '編集', "/diaries/#{diary.id}/edit", method: :get %>
+              </li>
+              <li>
+                <%= link_to '削除', "/diaries/#{diary.id}", method: :delete %>
+              </li>
+            </ul>
+            <% end %>
+          </div>
+        </a>
+      </div>
+      <% end %>
+    </div>
   </div>
+</div>
+<%= paginate(@diaries) %>

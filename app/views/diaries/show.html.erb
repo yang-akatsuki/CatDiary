@@ -1,50 +1,51 @@
-<div class ="contents">
-
-  <div class="content_post" style="background-image: url(<%= @diary.image %>);">
-
-    <% if user_signed_in? && current_user.id == @diary.user_id %>
-    <div class="more">
-    <span><%= image_tag 'arrow.png' %></span>
-      <ul class="more_list">
-        <li>
-          <%= link_to '編集', "/diaries/#{@diary.id}/edit", method: :get %>
-        </li>
-        <li>
-          <%= link_to '削除', "/diaries/#{@diary.id}", method: :delete %>
-        </li>
-      </ul>
-    </div>
-    <% end %>
-      <a href="/users/<%= @diary.user.id %>"></a>
-
-  </div>
-
-  <div class = "post_text"><%= simple_format(@diary.text) %></div>
-
-</br>
-
-<div class = "comments">
-    <!-- ここからフォーム -->
-
-    <% if current_user %>
-      <%= form_tag("/diaries/#{@diary.id}/reviews", method: :post) do %>
-        <textarea cols="30" name="text" placeholder="コメントする" rows="2"></textarea>
-      <div class = "action">
-        <input type="submit" value="SENT">
+<div class="blueBackground">
+  <div id="log" class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <img class="img-responsive" src="profile.png" alt="">
+        <div id= "log" class ="contents">
+          <div class="content_post" style="background-image: url(<%= @diary.image %>);">
+            <% if user_signed_in? && current_user.id == @diary.user_id %>
+            <div class="more">
+              <span><%= image_tag 'arrow.png' %></span>
+              <ul class="more_list">
+                <li>
+                  <%= link_to '編集', "/diaries/#{@diary.id}/edit", method: :get %>
+                </li>
+                <li>
+                  <%= link_to '削除', "/diaries/#{@diary.id}", method: :delete %>
+                </li>
+              </ul>
+            </div>
+            <% end %>
+            <a href="/users/<%= @diary.user.id %>"></a>
+          </div>
+          <div class = "post_text"><%= simple_format(@diary.text) %></div>
+          </br>
+          <div class = "comments">
+            <!-- ここからフォーム -->
+            <% if current_user %>
+            <%= form_tag("/diaries/#{@diary.id}/reviews", method: :post) do %>
+            <textarea cols="30" name="text" placeholder="コメントする" rows="2"></textarea>
+            <div class = "action">
+              <input type="submit" value="SENT">
+            </div>
+            <% end %>
+            <% end %>
+            <div class="reviews">
+              <h4>＜コメント一覧＞</h4>
+              <% if @reviews %>
+              <% @reviews.each do |review| %>
+              <p>
+                <%= link_to review.user.petname, "/users/#{review.user_id}" %>：
+                <%= review.text %>
+              </p>
+              <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
-      <% end %>
-    <% end %>
-
-    <div class="reviews">
-      <h4>＜コメント一覧＞</h4>
-      <% if @reviews %>
-        <% @reviews.each do |review| %>
-          <p>
-            <%= link_to review.user.petname, "/users/#{review.user_id}" %>：
-            <%= review.text %>
-          </p>
-        <% end %>
-      <% end %>
     </div>
   </div>
 </div>

@@ -37,7 +37,7 @@
             <%= simple_format(diary.text) %>
           </div>
           <span class="user_name">
-            <a href="/users/<%= current_user.id %>">
+            <a href="/users/<%= diary.user_id %>">
               <span><%= diary.user.petname %></span>
             </a>
             <p><%= diary.year %>歳<%= diary.month %>ヶ月</p>
@@ -65,32 +65,3 @@
   </section>
 
 
-  <!-- <ツイッターのコンテンツ> -->
-  <section class="success" id="about">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2>〜みんなの#catツイート〜</h2>
-          <hr class="star-light">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4 portfolio-item" style="">
-          <% @twitter_posts.each do |post| %>
-          <div class="cat_twitter">
-            <% if post.media.present? %>
-            <%= image_tag post.user.profile_image_url %>
-            <%= post.text %>
-            <br>
-            <%= image_tag post.media[0].media_url.to_s, class: "catTwitterimage"%>
-            <% else %>
-            <%= image_tag post.user.profile_image_url %>
-            <%= post.text %>
-            <% end %>
-            <br>
-          </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </section>

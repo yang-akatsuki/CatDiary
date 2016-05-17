@@ -17,10 +17,14 @@
 
 
 
-body,html {
-  height: 100%;
-  width: 100%;
-}
+/*body {
+  font-size: 14px;
+  background: #EECDA3; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #EECDA3 , #EF629F);  Chrome 10-25, Safari 5.1-6 
+  background: linear-gradient(to left, #EECDA3 , #EF629F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  margin: 0 auto;
+}*/
+
 
 h1,h2,h3,h4,h5,h6,p {
   padding: 0px 0;
@@ -28,41 +32,7 @@ h1,h2,h3,h4,h5,h6,p {
 }
 
 
-/*ヘッダーのボタン
-*/
 
-/*.header_bar {
-  text-align: right;
-  padding-top: 15px;
-  padding-right: 30px;
-  height: 60px;
-  background: #EECDA3; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #EECDA3 , #EF629F); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #EECDA3 , #EF629F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  width: 100%
-}*/
-
-/*.user_navout span{
-  float:left;
-  padding-left: 50px;
-  font-family: serif;
-  font-size: 25px;
-  color: white;
-}
-
-.cat_twitter {
-
-}*/
-
-/*a.post {
-  text-decoration: none;
-  font-size: 17px;
-  border: 3px solid white;
-  color: white;
-  border-radius: 5px;
-  padding: 5px;
-}
-*/
 
 .btn-pagetop.btn--show {
     pointer-events: auto;
@@ -90,60 +60,7 @@ h1,h2,h3,h4,h5,h6,p {
     transition: all .2s ease-in;
 }
 
-/*.diary {
-  background: #EECDA3; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #EECDA3 , #EF629F); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #EECDA3 , #EF629F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  height: 310px;
-  background-image: url(camera.png);
-  background-repeat: no-repeat;
-  background-position: center;
-}*/
 
-/*.form_contents {
-padding-top: 50px;
-}
-
-#hp_title h2{
-  font-family: serif;
-  font-size: 50px;
-  color: white;
-  text-align: center;
-  opacity: 1;
-}*/
-
-
-/*h1 {
-  text-align: center;
-  padding: 100px 100px 0 100px;
-  font-family: "游ゴシック", "YuGothic";
-  font-size: 20px;
-  color: white;
-}*/
-
-
-
-/*h2 {
-  text-align: center;
-  font-family: impact;
-  font-size: 300% ;
-  color: white;
-  opacity: 0.5;
-  padding: 20px;
-}
-*/
-
-/*.contents {
-  background: #EECDA3; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #EECDA3 , #EF629F);  Chrome 10-25, Safari 5.1-6 
-  background: linear-gradient(to left, #EECDA3 , #EF629F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}*/
-
-/*.left_content {
-  background: #EECDA3; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #EECDA3 , #EF629F);  Chrome 10-25, Safari 5.1-6 
-  background: linear-gradient(to left, #EECDA3 , #EF629F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}*/
 
 
 
@@ -174,10 +91,6 @@ padding-top: 50px;
   right: 5px;
   bottom:20px
 }
-
-/*.formcontents{
-  background-color: #E0DCDD;
-}*/
 
 
 
@@ -230,35 +143,13 @@ textarea {
   padding-top: 150px;
 }
 
-/*footer {
-  background: #EECDA3; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #EECDA3 , #EF629F); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #EECDA3 , #EF629F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-  height: 50px;
-  background-color: pink;
-}*/
 
 p {
 color: white;
 text-align: center;
 }
 
-
-/*.clearfix:after {
-  content: "";
-  clear: both;
-  display: block;
-}
-*/
-
-
-/*削除画面のCSS*/
-/*.success {
-  text-align: center;
-}
-*/
-/*サインアップ*/
 
 
 .field label {
@@ -282,22 +173,6 @@ text-align: center;
   font-weight: bold;
 }
 
-/*レビューページ*/
-/*.reviews h4{
-color: white;
-text-align: center;
-padding: 0 0 50px 0;
-}*/
-
-/*.comments textarea{
-  height: 200px;
-  width: 700px;
-  border:solid 3px #EEA34A;
-}*/
-
-/*.comments {
-  padding:0px 270px 0px 270px;
-}*/
 
 .action {
   font-size: 20px;

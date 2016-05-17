@@ -4,7 +4,7 @@ before_action :move_to_index, except: :index
 
   def index
     @diaries = Diary.includes(:user).page(params[:page]).per(6).order("created_at DESC")
-    # @twitter_posts = Diary.fetch_twitter
+    @twitter_posts = Diary.fetch_twitter
   end
 
 
@@ -19,11 +19,11 @@ before_action :move_to_index, except: :index
   def search
     # 検索フォームのキーワードをあいまい検索して、productsテーブルから20件の作品情報を取得する
    keyword = "%#{params[:keyword]}%"
-  @diaries = Diary.find_by_sql(["select * from diaries where text like ? LIMIT 20", keyword])
+   @diaries = Diary.find_by_sql(["select * from diaries where cattype like ? LIMIT 20", keyword])
   end
 
   def create
-    Diary.create(petname: diary_params[:petname], image: diary_params[:image], text: diary_params[:text], user_id: current_user.id, petname: current_user.petname, year: params[:year], month: params[:month])
+    Diary.create(petname: diary_params[:petname], image: diary_params[:image], text: diary_params[:text], user_id: current_user.id, petname: current_user.petname, year: params[:year], month: params[:month], cattype: params[:cattype])
   end
 
   def destroy

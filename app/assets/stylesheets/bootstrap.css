@@ -1125,7 +1125,7 @@ img {
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
   display: block;
-  max-width: 100%;
+  width: 100%;
   height: auto;
 }
 .img-rounded {
@@ -2528,6 +2528,7 @@ input[type="checkbox"] {
 }
 input[type="file"] {
   display: block;
+  margin: 0 auto;
 }
 input[type="range"] {
   display: block;

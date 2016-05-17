@@ -4,14 +4,41 @@
     <div class="row">
       <div class="col-lg-12">
         <img class="img-responsive" src="profile.png" alt="">
-        <div class="intro-text">
           <hr class="star-light">
           <div class="contentTitle"><span class="">猫の成長を記録しよう</span></div>
           <%= form_tag('/diaries', method: :post) do %>
           <input placeholder="Image Url" type="text" name="image"><br>
-          <textarea cols="30" name="text" placeholder="text" rows="10"></textarea><br>
+          <textarea cols="30" name="text" placeholder="text" rows="10" cols= "100"></textarea><br>
           <div style="">
           <div class="row">
+
+          <p>猫ちゃんの種類を選んでくださいね</p>
+          <div class="select_join">
+            <select name = "cattype">
+              <option value="アビシニアン">アビシニアン</option>
+              <option value="アメリカンカール">アメリカンカール</option>
+              <option value="アメリカンショートヘア">アメリカンショートヘア</option>
+              <option value="アメリカンボブテイル">アメリカンボブテイル</option>
+              <option value="アメリカンワイヤーヘア">アメリカンワイヤーヘア</option>
+              <option value="エキゾチック">エキゾチック</option>
+              <option value="エジプシャンマウ">エジプシャンマウ</option>
+              <option value="オシキャット">オシキャット</option>
+              <option value="オリエンタル">オリエンタル</option>
+              <option value="キムリック">キムリック</option>
+              <option value="コーニッシュレックス">コーニッシュレックス</option>
+              <option value="コラット">コラット</option>
+              <option value="サイアミーズ（シャム）">サイアミーズ（シャム）</option>
+              <option value="サイベリアン">サイベリアン</option>
+              <option value="ジャパニーズボブテイル">ジャパニーズボブテイル</option>
+              <option value="シャルトリュー">シャルトリュー</option>
+              <option value="シンガプーラ">シンガプーラ</option>
+              <option value="スコティッシュフォールド">スコティッシュフォールド</option>
+              <option value="スフィンクス">スフィンクス</option>
+              <option value="セルカークレックス">セルカークレックス</option>
+              <option value="ソマリ">ソマリ</option>
+            </select>
+          </div>
+<br/>
           <p>猫ちゃんの年齢を入れてくださいね</p>
           <div class="select_join">
             <select name = "year">
@@ -37,7 +64,7 @@
           </div>
 
         </div>
-          <div>歳</div>
+          <p>歳</p>
         </div>
 
           <div class="select_join">
@@ -58,6 +85,8 @@
             </select>
           </div>
           <p>ヶ月</p>
+
+
 
           <input class="buttonSEND" type="submit" value="SENT">
           <% end %>

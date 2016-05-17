@@ -1,51 +1,56 @@
-<div class="blueBackground">
-  <div id="log" class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <img class="img-responsive" src="profile.png" alt="">
-        <div id= "log" class ="contents">
-          <div class="content_post" style="background-image: url(<%= @diary.image %>);">
-            <% if user_signed_in? && current_user.id == @diary.user_id %>
-            <div class="more">
-              <span><%= image_tag 'arrow.png' %></span>
-              <ul class="more_list">
-                <li>
-                  <%= link_to '編集', "/diaries/#{@diary.id}/edit", method: :get %>
-                </li>
-                <li>
-                  <%= link_to '削除', "/diaries/#{@diary.id}", method: :delete %>
-                </li>
-              </ul>
-            </div>
-            <% end %>
-            <a href="/users/<%= @diary.user.id %>"></a>
+    <div class="whiteBackground">
+      <div id="log" class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <%= image_tag current_user.avatar, class: "userAvatarimage"%>
           </div>
-          <div class = "post_text"><%= simple_format(@diary.text) %></div>
-          </br>
-          <div class = "comments">
-            <!-- ここからフォーム -->
-            <% if current_user %>
-            <%= form_tag("/diaries/#{@diary.id}/reviews", method: :post) do %>
+          <h4>
+          <span><%= @diary.petname %></span>
+          </h4>
+        </div>
+        <!-- イメージ写真 -->
+        <div class="detailsImage">
+          <img class="img-responsive" alt="" src="<%= @diary.image %>"  style="width:100%" />
+        </div>
+        <!-- テキストの詳細 -->
+        <div class = "detailsText">
+          <%= @diary.text %>
+        </div>
+        <!-- 編集と削除 -->
+        <div class="detailsButton">
+          <% if user_signed_in? && current_user.id == @diary.user_id %>
+          <button  class = "buttonEdit" type="button">
+          <%= link_to '編集', "/diaries/#{@diary.id}/edit", method: :get %>
+          </button>
+          <button class="buttonDelete" type="button">
+          <%= link_to '削除', "/diaries/#{@diary.id}", method: :delete %>
+          </button>
+          <% end %>
+        </div>
+        <!-- ここからフォーム -->
+        <div class="commentArea">
+          <% if current_user %>
+          <%= form_tag("/diaries/#{@diary.id}/reviews", method: :post) do %>
+          <div class="detailsComment">
             <textarea cols="30" name="text" placeholder="コメントする" rows="2"></textarea>
-            <div class = "action">
-              <input type="submit" value="SENT">
-            </div>
+          </div>
+          <div class="detailsComment">
+            <input type="submit" value="SENT">
+          </div>
+          <% end %>
+          <% end %>
+          <div class="commentView">
+            <% if @reviews %>
+            <% @reviews.each do |review| %>
+            <p>
+              <%= link_to review.user.petname, "/users/#{review.user_id}" %>ちゃん：
+              <%= review.text %>
+            </p>
+            <hr/>
             <% end %>
             <% end %>
-            <div class="reviews">
-              <h4>＜コメント一覧＞</h4>
-              <% if @reviews %>
-              <% @reviews.each do |review| %>
-              <p>
-                <%= link_to review.user.petname, "/users/#{review.user_id}" %>：
-                <%= review.text %>
-              </p>
-              <% end %>
-              <% end %>
-            </div>
           </div>
         </div>
+        <!-- ここまでがフォーム -->
       </div>
     </div>
-  </div>
-</div>

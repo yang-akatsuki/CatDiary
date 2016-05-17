@@ -1,48 +1,55 @@
-<div class="blueBackground">
+<div class="whiteBackground">
   <div id="log" class="container" style="padding-top: 150px">
 
     <div class="row">
       <div class="col-lg-12 text-center">
         <%= image_tag current_user.avatar, class: "userAvatarimage"%>
-        <h2><%= @petname %>の成長日記一覧</h2>
+        <h3><%= @petname %>の成長日記一覧</h3>
         <hr class="star-primary">
       </div>
     </div>
+
+<section id="portfolio">
+  <div class="container">
     <div class="row">
       <% @diaries.each do |diary| %>
       <div class="col-sm-4 portfolio-item" style="">
-        <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+        <a href = "/diaries/<%= diary.id %>" class="portfolio-link" data-toggle="modal">
           <div class="caption">
             <div class="caption-content">
               <i class="fa fa-search-plus fa-3x"></i>
             </div>
           </div>
-          <img class="img-responsive" alt="" src="<%=diary.image %>"/>
-
-          <span class="user_name">
-            <p><%= diary.year %>歳</p>
-            <p><%= diary.month %>ヶ月</p>
-          </span>
-          <div class="more">
-            <span><%= image_tag 'arrow.png' %></span>
-            <ul class=" more_list">
-              <li>
-                <%= link_to '詳細', "/diaries/#{diary.id}", method: :get %>
-              </li>
-              <% if user_signed_in? && current_user.id == diary.user_id %>
-              <li>
-                <%= link_to '編集', "/diaries/#{diary.id}/edit", method: :get %>
-              </li>
-              <li>
-                <%= link_to '削除', "/diaries/#{diary.id}", method: :delete %>
-              </li>
-            </ul>
-            <% end %>
-          </div>
+          <img class="img-responsive" alt="" src="<%=diary.image %>" style="width: 100%"/>
         </a>
+        <hr>
+
+        <span class="user_name">
+          <p><%= diary.year %>歳<%= diary.month %>ヶ月</p>
+        </span>
+        <div class="more">
+          <span><%= image_tag 'arrow.png' %></span>
+          <ul class=" more_list" style="list-style:none;">
+            <li>
+              <%= link_to '詳細', "/diaries/#{diary.id}", method: :get %>
+            </li>
+            <% if user_signed_in? && current_user.id == diary.user_id %>
+            <li>
+              <%= link_to '編集', "/diaries/#{diary.id}/edit", method: :get %>
+            </li>
+            <li>
+              <%= link_to '削除', "/diaries/#{diary.id}", method: :delete %>
+            </li>
+          </ul>
+          <% end %>
+        </div>
       </div>
       <% end %>
+      <%= paginate(@diaries) %>
     </div>
   </div>
+  </section>
+
+
 </div>
-<%= paginate(@diaries) %>
+</div>

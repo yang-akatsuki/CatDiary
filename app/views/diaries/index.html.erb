@@ -65,31 +65,49 @@
 
 
   <!-- <ツイッターのコンテンツ> -->
-  <section class="success" id="about">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2>〜みんなの#catツイート〜</h2>
-          <hr class="star-light">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4 portfolio-item" style="">
-          <% @twitter_posts.each do |post| %>
-          <div class="cat_twitter">
-            <% if post.media.present? %>
-            <%= image_tag post.user.profile_image_url %>
-            <%= post.text %>
-            <br>
-            <%= image_tag post.media[0].media_url.to_s, class: "catTwitterimage"%>
-            <% else %>
-            <%= image_tag post.user.profile_image_url %>
-            <%= post.text %>
-            <% end %>
-            <br>
-          </div>
-          <% end %>
-        </div>
+<section class="success" id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h3>〜みんなの#catツイート〜</h3>
+        <hr class="star-light">
       </div>
     </div>
-  </section>
+    <div class="row">
+      <div class="col-sm-4 portfolio-item" style="">
+        <% @twitter_posts.each do |post| %>
+        <div class="cat_twitter">
+          <% if post.media.present? %>
+          <a href = "<%= post.user.url%>">
+            <%= image_tag post.user.profile_image_url %>
+          </a>
+          <a href = "<%= post.user.url%>">
+            <%= post.user.name %>
+          </a>
+          <br>
+          <a href = "<%= post.url%>">
+            <%= post.text %>
+          </a>
+          <br>
+          <a href ="<%= post.media[0].media_url%>">
+            <%= image_tag post.media[0].media_url.to_s, class: "catTwitterimage"%>
+          </a>
+          <% else %>
+          <a href = "<%= post.user.url%>">
+            <%= image_tag post.user.profile_image_url %>
+          </a>
+          <a href = "<%= post.user.url%>">
+            <%= post.user.name %>
+          </a>
+          <br>
+          <a href = "<%= post.url%>">
+            <%= post.text %>
+          </a>
+          <% end %>
+          <br>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

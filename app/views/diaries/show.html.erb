@@ -50,7 +50,7 @@
             <% if @reviews %>
             <% @reviews.each do |review| %>
             <%= image_tag current_user.avatar, class: "commentUserimg" %>
-            <%= link_to review.user.petname, "/users/#{review.user_id}" %>ちゃん
+            <%= link_to review.user.petname, "/users/#{review.user_id}" %>ちゃん  <i class="fa fa-commenting-o" aria-hidden="true"></i>
             <div class = "percomment">
               <span><%= review.text %></span>
             </div>

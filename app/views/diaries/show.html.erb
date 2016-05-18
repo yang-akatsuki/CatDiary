@@ -10,11 +10,13 @@
         </div>
         <!-- イメージ写真 -->
         <div class="detailsImage">
-          <img class="img-responsive" alt="" src="<%= @diary.image %>"  style="width:100%" />
+          <img class="img-responsive" alt="" src="<%= @diary.image %>"  style="width:100%;border-radius: 6px;" />
         </div>
         <!-- テキストの詳細 -->
         <div class = "detailsText">
-          <%= @diary.text %>
+         <div class="baseInfo"><%= @diary.user.sex %> / <%= @diary.year %>歳<%= @diary.month %>ヶ月/ <%= @diary.cattype %></div>
+         <div class="perText"><%= @diary.text %></div>
+
         </div>
         <!-- 編集と削除 -->
         <div class="detailsButton">
@@ -27,10 +29,14 @@
           </button>
          <% end %>
         </div>
+      </div>
+    </div>
         <!-- ここからフォーム -->
+    <div class="reviewBackground">
+      <div class="container">
         <div class="commentArea">
           <% if current_user %>
-          <%= form_tag("/diaries/#{@diary.id}/reviews", method: :post) do %>
+          <%= form_tag("/diaries/#{@diary.id}/reviews", class: "commentForm", method: :post) do %>
           <div class="detailsComment">
             <textarea cols="30" name="text" placeholder="コメントする" rows="2"></textarea>
           </div>
@@ -39,18 +45,19 @@
           </div>
           <% end %>
           <% end %>
+        </div>
           <div class="commentView">
             <% if @reviews %>
             <% @reviews.each do |review| %>
-            <p>
-              <%= link_to review.user.petname, "/users/#{review.user_id}" %>ちゃん：
-              <%= review.text %>
-            </p>
-            <hr/>
+            <%= image_tag current_user.avatar, class: "commentUserimg" %>
+            <%= link_to review.user.petname, "/users/#{review.user_id}" %>ちゃん
+            <div class = "percomment">
+              <span><%= review.text %></span>
+            </div>
+
             <% end %>
             <% end %>
-          </div>
         </div>
-        <!-- ここまでがフォーム -->
       </div>
     </div>
+        <!-- ここまでがフォーム -->

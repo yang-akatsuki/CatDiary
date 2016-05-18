@@ -2,13 +2,24 @@
   <div id="log" class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h2>サインアップ</h2>
-        <hr class="star-primary">
+        <h3>サインアップ</h3>
+        <hr class="star-light">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
         <div class="field">
-          <%= f.label :petname %> <em>(6 characters maximum)</em><br />
-          <%= f.text_field :petname,  placeholder: '猫ちゃんの名前を入力してください（必須）', autofocus: true, maxlength: "6" %>
+          <p>猫ちゃんの名前<em>(最大6文字)</em><br /></p>
+          <%= f.text_field :petname,  placeholder: '名前を入力してください（必須）', autofocus: true, maxlength: "6" %>
+        </div>
+        <div class="field">
+          <p>猫ちゃんの性別</p>
+        </div>
+        <div class="genderField">
+          <div class="genderSpace clearfix">
+            <span>男の子　　</span>
+             <%= f.radio_button :sex, "♂"%>
+            <span>女の子　　</span>
+             <%= f.radio_button :sex, "♀" %>
+          </div>
         </div>
         <div class="field">
           <%= f.label :email %><br />
@@ -25,7 +36,8 @@
           <%= f.label :password_confirmation %><br />
           <%= f.password_field :password_confirmation, placeholder: 'パスワードを確認してください', autocomplete: "off" %>
         </div>
-        <div class="field">
+
+        <div class="field_avatar">
           <br />
           <%= f.file_field :avatar %>
         </div>

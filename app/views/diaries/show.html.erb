@@ -2,7 +2,7 @@
       <div id="log" class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <%= image_tag current_user.avatar, class: "userAvatarimage"%>
+            <%= image_tag @petimg, class: "userAvatarimage"%>
           </div>
           <h4>
           <span><%= @diary.petname %></span>
@@ -25,7 +25,7 @@
           <button class="buttonDelete" type="button">
           <%= link_to '削除', "/diaries/#{@diary.id}", method: :delete %>
           </button>
-          <% end %>
+         <% end %>
         </div>
         <!-- ここからフォーム -->
         <div class="commentArea">

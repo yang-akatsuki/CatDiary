@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     end
 
     def configure_permitted_parameters
-      devise_parameter_sanitizer.for(:sign_up) .push(:petname, :avatar, :year, :month, :cattype)
+      devise_parameter_sanitizer.for(:sign_up) .push(:petname, :avatar, :year, :month, :cattype, :sex)
     end
 
 

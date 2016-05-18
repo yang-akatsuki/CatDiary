@@ -1,37 +1,68 @@
-<div class="blueBackground">
-  <div id = "log" class="container">
+<div class="blueBackground_half">
+  <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3>猫ちゃんの種類で日記検索
-        </h3>
-        <div class= "form_contents" style="padding-top: 50px">
+        <h3>猫ちゃんの種類で日記検索</h3>
+        <div class= "form_contents" style="">
           <%= form_tag('/diaries/search', method: :get) do %>
-          <input name="keyword" placeholder="例：アメリカンショートヘア" type="text" value=""><br>
-          <button class="btn_search" title="検索" type="submit"></button></input>
+          <input name="keyword" placeholder="例：アメリカンショートヘア" type="text" value=""></input>
+          <button class="btn_search" title="検索" type="submit">GO</button>
           <% end %>
           <form accept-charset="utf-8" action="/" class="js-search-submit" method="get">
           </form>
         </div>
         <br>
-
-        <h3>
-        検索結果
-        </h3>
-        <hr class="star-primary">
-        <div class="row">
-         <% if @diaries.present? %>
-          <% @diaries.each do |diary| %>
-          <div class="col-sm-4 portfolio-item" style="">
-            <a class="searchText" href="/diaries/<%= diary.id %>" title="<%= diary.petname %>">
-              <img class="img-responsive" alt="" src="<%=diary.image %>"/>
-            </a>
-          </div>
-          <% end %>
-        <% else %>
-         <h3>一致する結果が見つかりませんでした<h3>
-        <% end %>
-        </div>
       </div>
+    </div>
+  </div>
+</div>
+      <!--検索結果エリア -->
+<div class="whiteBackgroundhalf">
+  <div class="container">
+    <div class="row">
+      <section id="portfolio" style="padding-top: 0;">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 text-center">
+              <h3>
+              検索結果
+              </h3>
+              <hr class="star-primary">
+            </div>
+          </div>
+            <div class="row">
+              <% if @diaries.present? %>
+              <% @diaries.each do |diary| %>
+              <div class="col-sm-4 portfolio-item" style="">
+                <a href = "/diaries/<%= diary.id %>" class="portfolio-link" data-toggle="modal">
+                  <div class="caption">
+                    <div class="caption-content">
+                      <i class="fa fa-search-plus fa-3x"></i>
+                    </div>
+                  </div>
+                  <img class="img-responsive" alt="" src="<%=diary.image %>" style="width:100%"/>
+                </a>
+                <hr>
+        <div class = "text_post">
+          <%= simple_format(diary.text) %>
+        </div>
+                <div class="userinfo_index">
+                  <a href="/users/<%= diary.user_id %>">
+                    <%= diary.user.petname %>
+                  </a>
+                  <span>（<%= diary.user.sex %> / <%= diary.year %>歳<%= diary.month %>ヶ月/ <%= diary.cattype %>）</span>
+                  <span>
+                  </div>
+                </div>
+                <% end %>
+                <% else %>
+                <h4>一致する結果が見つかりませんでした。<h4>
+                <% end %>
+              </div>
+            </div>
+
+        </div>
+      </section>
     </div>
   </div>
 </div>

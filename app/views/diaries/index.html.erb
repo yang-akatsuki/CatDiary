@@ -1,19 +1,18 @@
-<header>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <img class="img-responsive catLogo" src="assets/camera.png" alt="">
-        <div class="intro-text">
-          <span class="name">Cat Diary</span>
-          <hr class="star-light">
-          <span class="skills">猫の成長を毎日記録しよう</span>
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <img class="img-responsive catLogo" src="assets/camera.png" alt="">
+          <div class="intro-text">
+            <span class="name">Cat Diary</span>
+            <hr class="star-light">
+            <span class="skills">猫の成長を毎日記録しよう</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</header>
-
-<!-- ユーザーの投稿 -->
+  </header>
+  <!-- ユーザーの投稿 -->
 <section id="portfolio">
   <div class="container">
     <div class="row">
@@ -37,54 +36,27 @@
         <div class = "text_post">
           <%= simple_format(diary.text) %>
         </div>
-
-            <% if user_signed_in? && current_user.id == diary.user_id %>
-            <button  class = "buttonEdit" type="button">
-              <%= link_to '編集', "/diaries/#{diary.id}/edit", method: :get %>
-            </button>
-            <button  class = "buttonEdit" type="button">
-              <%= link_to '削除', "/diaries/#{diary.id}", method: :delete %>
-            </button>
-            <% end %>
-
-                <span class="user_name">
+        <div class="userinfo_index">
           <a href="/users/<%= diary.user_id %>">
-            <span><%= diary.user.petname %></span>
+            <%= diary.user.petname %>
           </a>
-          <p><%= diary.year %>歳<%= diary.month %>ヶ月</p>
-        </span>
+          <span>（<%= diary.user.sex %> / <%= diary.year %>歳<%= diary.month %>ヶ月/ <%= diary.cattype %>）</span>
+        </div>
+        <button  class = "buttonEdit" type="button">
+        <%= link_to '詳細', "/diaries/#{diary.id}", method: :get %>
+        </button>
+        <% if user_signed_in? && current_user.id == diary.user_id %>
+        <button  class = "buttonEdit" type="button">
+        <%= link_to '編集', "/diaries/#{diary.id}/edit", method: :get %>
+        </button>
+        <button  class = "buttonEdit" type="button">
+        <%= link_to '削除', "/diaries/#{diary.id}", method: :delete %>
+        </button>
+        <% end %>
       </div>
       <% end %>
       <%= paginate(@diaries) %>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- <ツイッターのコンテンツ> -->
-  <section class="success" id="about">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2>〜みんなの#catツイート〜</h2>
-          <hr class="star-light">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4 portfolio-item" style="">
-          <% @twitter_posts.each do |post| %>
-          <div class="cat_twitter">
-            <% if post.media.present? %>
-            <%= image_tag post.user.profile_image_url %>
-            <%= post.text %>
-            <br>
-            <%= image_tag post.media[0].media_url.to_s, class: "catTwitterimage"%>
-            <% else %>
-            <%= image_tag post.user.profile_image_url %>
-            <%= post.text %>
-            <% end %>
-            <br>
-          </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </section>

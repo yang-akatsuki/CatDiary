@@ -1,6 +1,6 @@
 $(function(){
     var $setText = $('.text_post p');
-    var cutFigure = '40'; // 表示する文字数の設定
+    var cutFigure = '20'; // 表示する文字数の設定
     var afterText = ' …'; // 省略した末尾に追加するテキスト
 
     $setText.each(function(){

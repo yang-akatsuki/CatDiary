@@ -3,11 +3,11 @@
   <div id="log" class="container">
     <div class="row">
       <div class="col-lg-12">
-        <img class="img-responsive" src="profile.png" alt="">
+        <%= image_tag @petimg, class: "userAvatarimage"%>
           <hr class="star-light">
-          <div class="contentTitle"><span class="">猫の成長を記録しよう</span></div>
+          <div class="contentTitle"><span class=""><%= current_user.petname %>の成長を記録しよう</span></div>
           <%= form_tag('/diaries', method: :post) do %>
-          <input placeholder="Image Url" type="text" name="image"><br>
+          <div class ="urlSpace"><input placeholder="Image Url" type="text" name="image"><br></div>
           <textarea cols="30" name="text" placeholder="text" rows="10" cols= "100"></textarea><br>
           <div style="">
           <div class="row">

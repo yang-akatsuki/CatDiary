@@ -274,10 +274,9 @@ text-align: center;
 
 
 .catLogo{
-
-  width:100px;
-
-
+color: black;
+font-size: 60px;
+color: #2c3e50;
 }
 
 .blueBackground{
@@ -394,6 +393,7 @@ text-align: center;
   border: solid 3px;
   color: #A7E2AD;
   box-shadow: 0 0 0 4px #3cb371;
+  margin-bottom: 20px;
 }
 
 .detailsImage {

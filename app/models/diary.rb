@@ -3,6 +3,12 @@ class Diary < ActiveRecord::Base
   has_many :reviews
   has_many :likes, dependent: :destroy
 
+  has_attached_file :local_image,
+                      styles:  { medium: "300x300#", thumb: "100x100#" }
+  validates_attachment_content_type :local_image,
+                                      content_type: ["image/jpg","image/jpeg","image/png"]
+
+
   def like_user(user_id)
    likes.find_by(user_id: user_id)
   end

@@ -623,3 +623,10 @@ text-align: left;
 .userinfo_search {
   text-align: left;
 }
+
+
+.newimagesend p{
+    font-size: x-small;
+    opacity: 0.7;
+    color: pink;
+}

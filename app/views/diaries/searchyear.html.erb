@@ -41,7 +41,11 @@
                       <i class="fa fa-search-plus fa-3x"></i>
                     </div>
                   </div>
+                  <% if diary.image.present? %>
                   <img class="img-responsive" alt="" src="<%=diary.image %>" style="width:100%"/>
+                  <% else %>
+                    <%= image_tag diary.local_image, class: "img-responsive" %>
+                  <% end %>
                 </a>
                 <hr>
                 <div class = "text_post">

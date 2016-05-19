@@ -41,7 +41,7 @@ before_action :move_to_index, except: :index
   end
 
   def create
-    Diary.create(petname: diary_params[:petname], image: diary_params[:image], text: diary_params[:text], user_id: current_user.id, petname: current_user.petname, year: params[:year], month: params[:month], cattype: params[:cattype])
+    Diary.create(petname: diary_params[:petname], image: diary_params[:image], text: diary_params[:text], user_id: current_user.id, petname: current_user.petname, year: params[:year], month: params[:month], cattype: params[:cattype], local_image: diary_params[:local_image])
   end
 
   def destroy
@@ -64,7 +64,7 @@ before_action :move_to_index, except: :index
 
   private
   def diary_params
-    params.permit(:petname, :text, :image)
+    params.permit(:petname, :text, :image, :local_image)
   end
 
   def move_to_index

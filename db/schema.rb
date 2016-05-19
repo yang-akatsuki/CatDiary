@@ -11,18 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519013417) do
+ActiveRecord::Schema.define(version: 20160519084021) do
 
   create_table "diaries", force: :cascade do |t|
-    t.text     "text",       limit: 65535
-    t.text     "image",      limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.integer  "user_id",    limit: 4
-    t.string   "petname",    limit: 255
-    t.integer  "year",       limit: 4
-    t.integer  "month",      limit: 4
-    t.string   "cattype",    limit: 255
+    t.text     "text",                     limit: 65535
+    t.text     "image",                    limit: 65535
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.integer  "user_id",                  limit: 4
+    t.string   "petname",                  limit: 255
+    t.integer  "year",                     limit: 4
+    t.integer  "month",                    limit: 4
+    t.string   "cattype",                  limit: 255
+    t.string   "local_image_file_name",    limit: 255
+    t.string   "local_image_content_type", limit: 255
+    t.integer  "local_image_file_size",    limit: 4
+    t.datetime "local_image_updated_at"
   end
 
   create_table "likes", force: :cascade do |t|

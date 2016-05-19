@@ -10,7 +10,11 @@
         </div>
         <!-- イメージ写真 -->
         <div class="detailsImage">
-          <img class="img-responsive" alt="" src="<%= @diary.image %>"  style="width:100%;border-radius: 6px;" />
+          <% if @diary.image.present? %>
+            <img class="img-responsive" alt="" src="<%= @diary.image %>"  style="width:100%;border-radius: 6px;" />
+          <% else %>
+            <%= image_tag @diary.local_image, class: "img-responsive" %>
+          <% end %>
         </div>
         <!-- テキストの詳細 -->
         <div class = "detailsText">
@@ -56,7 +60,7 @@
             </div>
             <% end %>
             <% end %>
-<%= paginate(@diaries) %>
+<%= paginate(@reviews) %>
         </div>
 
       </div>

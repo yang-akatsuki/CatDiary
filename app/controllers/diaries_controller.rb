@@ -14,15 +14,25 @@ before_action :move_to_index, except: :index
 
   def show
     @diary = Diary.find(params[:id])
-    @reviews = @diary.reviews.includes(:user)
+    @reviews = @diary.reviews.includes(:user).page(params[:page]).per(6).order("created_at DESC")
     @petimg = @diary.user.avatar
   end
 
   def search
-    # 検索フォームのキーワードをあいまい検索して、テーブルから20件の情報を取得する
    keyword = "%#{params[:keyword]}%"
     unless params[:keyword].nil?
-     @diaries = Diary.find_by_sql(["select * from diaries where cattype like ? LIMIT 20", keyword])
+      @diaries = Diary.where('cattype LIKE(?)', "%#{params[:keyword]}%")
+    else
+      @diaries = []
+      tmp = Diary.all
+      @diaries = Diary.where(id: tmp.sample(3) )
+    end
+  end
+
+  def searchyear
+   keyword = "%#{params[:keyword]}%"
+    unless params[:keyword].nil?
+      @diaries = Diary.where('year LIKE(?)', "%#{params[:keyword]}%")
     else
       @diaries = []
       tmp = Diary.all

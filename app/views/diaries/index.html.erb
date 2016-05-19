@@ -43,7 +43,7 @@
           <a href="/users/<%= diary.user_id %>">
             <%= diary.user.petname %>
           </a>
-          <span>（<%= diary.user.sex %> / <%= diary.year %>歳<%= diary.month %>ヶ月/ <%= diary.cattype %>）</span>
+          <span>（<%= diary.user.sex %> / <%= diary.year %>才<%= diary.month %>ヶ月/ <%= diary.cattype %>）</span>
         </div>
         <% if user_signed_in? && current_user.id == diary.user_id %>
         <button  class = "buttonEdit" type="button">

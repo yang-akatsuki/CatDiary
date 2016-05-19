@@ -2,10 +2,11 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3>猫ちゃんの種類で日記検索</h3>
-        <div class= "form_contents" style="">
-          <%= form_tag('/diaries/search', method: :get) do %>
-          <input name="keyword" placeholder="例：アメリカンショートヘア" type="text" value=""></input>
+        <h3>猫ちゃんの年齢で日記検索</h3>
+        <div class= "formsearch_index" style="">
+          <%= form_tag('/diaries/searchyear', method: :get) do %>
+          <input name="keyword" placeholder="例：3" type="text" value=""></input>
+          <span>才</span>
           <button class="btn_search" title="検索" type="submit">GO</button>
           <% end %>
           <form accept-charset="utf-8" action="/" class="js-search-submit" method="get">

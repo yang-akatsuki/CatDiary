@@ -14,7 +14,7 @@
         </div>
         <!-- テキストの詳細 -->
         <div class = "detailsText">
-         <div class="baseInfo"><%= @diary.user.sex %> / <%= @diary.year %>歳<%= @diary.month %>ヶ月/ <%= @diary.cattype %></div>
+         <div class="baseInfo"><%= @diary.user.sex %> / <%= @diary.year %>才<%= @diary.month %>ヶ月/ <%= @diary.cattype %></div>
          <div class="perText"><%= @diary.text %></div>
 
         </div>
@@ -54,10 +54,11 @@
             <div class = "percomment">
               <span><%= review.text %></span>
             </div>
-
             <% end %>
             <% end %>
+<%= paginate(@diaries) %>
         </div>
+
       </div>
     </div>
         <!-- ここまでがフォーム -->

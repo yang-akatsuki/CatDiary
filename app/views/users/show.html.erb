@@ -7,37 +7,56 @@
         <hr class="star-primary">
       </div>
     </div>
-    <section id="portfolio">
-      <div class="container">
-        <div class="row">
 
-          <% @diaries.each do |diary| %>
-          <div class="col-sm-4 portfolio-item" style="">
-            <a href = "/diaries/<%= diary.id %>" class="portfolio-link" data-toggle="modal">
-              <div class="caption">
-                <div class="caption-content">
-                  <i class="fa fa-search-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-responsive" alt="" src="<%=diary.image %>" style="width: 100%"/>
-            </a>
-            <hr>
-            <p class="usershowage">
-              <%= diary.year %>歳<%= diary.month %>ヶ月
-            </p>
-            <% if user_signed_in? && current_user.id == diary.user_id %>
-            <button  class = "buttonEdit" type="button">
-            <%= link_to '編集', "/diaries/#{diary.id}/edit", method: :get %>
-            </button>
-            <button  class = "buttonEdit" type="button">
-            <%= link_to '削除', "/diaries/#{diary.id}", method: :delete %>
-            </button>
+
+<!-- 年齢で検索するフォーム -->
+          <div class= "formsearch_index" style="">
+            <%= form_tag('/users/:id', method: :get) do %>
+            <input name="keyword" placeholder="例：3" type="text" value=""></input>
+            <input name="tmp_id" type="hidden" value=<%= @user.id %> ></input>
+            <span>才</span>
+            <button class="btn_search" title="検索" type="submit">GO</button>
             <% end %>
+            <form accept-charset="utf-8" action="/" class="js-search-submit" method="get">
+            </form>
           </div>
-          <% end %>
-          <%= paginate(@diaries) %>
+<!-- ここまでフォーム -->
+<!-- 表示スペース -->
+      <section id="portfolio">
+        <div class="container">
+          <div class="row">
+            <% if @diaries.present? %>
+                <% @diaries.each do |diary| %>
+                <div class="col-sm-4 portfolio-item" style="">
+                  <a href = "/diaries/<%= diary.id %>" class="portfolio-link" data-toggle="modal">
+                    <div class="caption">
+                      <div class="caption-content">
+                        <i class="fa fa-search-plus fa-3x"></i>
+                      </div>
+                    </div>
+                    <img class="img-responsive" alt="" src="<%=diary.image %>" style="width:100%"/>
+                  </a>
+                  <hr>
+                  <div class = "text_post">
+                    <%= simple_format(diary.text) %>
+                  </div>
+                  <div class="userinfo_show">
+                    <a href="/users/<%= diary.user_id %>">
+                      <%= diary.user.petname %>
+                    </a>
+                    <span>（<%= diary.user.sex %> / <%= diary.year %>才<%= diary.month %>ヶ月/ <%= diary.cattype %>）</span>
+                    <span>
+                    </div>
+                  </div>
+                  <% end %>
+                  <%= paginate(@diaries) %>
+              <% else %>
+              <h4>一致する結果が見つかりませんでした。</h4>
+              <% end %>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+<!-- ここまで表示スペース -->
   </div>
 </div>

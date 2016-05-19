@@ -596,3 +596,30 @@ text-align: left;
   margin-bottom: 5px;
 }
 
+
+.userinfo_show {
+  text-align: left;
+}
+
+
+.formsearch_index input {
+  margin-right: 10px;
+  width: 60%;
+  background: #A7E2AD;
+  border: 2px dashed rgba(255,255,255,0.5);
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  box-shadow: 0 0 0 5px #3cb371, 0 2px 3px 5px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0 0 0 5px #3cb371, 0 2px 3px 5px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 0 0 5px #3cb371, 0 2px 3px 5px rgba(0,0,0,0.5);
+}
+
+.formsearch_index span {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.userinfo_search {
+  text-align: left;
+}

@@ -45,7 +45,7 @@
           </a>
           <span>（<%= diary.user.sex %> / <%= diary.year %>歳<%= diary.month %>ヶ月/ <%= diary.cattype %>）</span>
         </div>
-        <% if user_signed_in? && current_user.id == diary.user_id %> 
+        <% if user_signed_in? && current_user.id == diary.user_id %>
         <button  class = "buttonEdit" type="button">
         <%= link_to '詳細', "/diaries/#{diary.id}", method: :get %>
         </button>

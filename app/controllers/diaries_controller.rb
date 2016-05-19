@@ -19,7 +19,7 @@ before_action :move_to_index, except: :index
   end
 
   def search
-    # 検索フォームのキーワードをあいまい検索して、productsテーブルから20件の作品情報を取得する
+    # 検索フォームのキーワードをあいまい検索して、テーブルから20件の情報を取得する
    keyword = "%#{params[:keyword]}%"
     unless params[:keyword].nil?
      @diaries = Diary.find_by_sql(["select * from diaries where cattype like ? LIMIT 20", keyword])

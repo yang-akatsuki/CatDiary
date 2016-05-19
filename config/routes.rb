@@ -9,10 +9,11 @@ Rails.application.routes.draw do
     end
   end
 
+
+
   resources :users, only: [:show]
 
   root 'diaries#index'
-
 
 
 end

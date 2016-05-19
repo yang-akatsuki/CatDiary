@@ -10,6 +10,7 @@
     <section id="portfolio">
       <div class="container">
         <div class="row">
+
           <% @diaries.each do |diary| %>
           <div class="col-sm-4 portfolio-item" style="">
             <a href = "/diaries/<%= diary.id %>" class="portfolio-link" data-toggle="modal">
@@ -21,9 +22,9 @@
               <img class="img-responsive" alt="" src="<%=diary.image %>" style="width: 100%"/>
             </a>
             <hr>
-            <span class="user_name">
-              <p><%= diary.year %>歳<%= diary.month %>ヶ月</p>
-            </span>
+            <p class="usershowage">
+              <%= diary.year %>歳<%= diary.month %>ヶ月
+            </p>
             <% if user_signed_in? && current_user.id == diary.user_id %>
             <button  class = "buttonEdit" type="button">
             <%= link_to '編集', "/diaries/#{diary.id}/edit", method: :get %>

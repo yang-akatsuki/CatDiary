@@ -13,4 +13,5 @@ class User < ActiveRecord::Base
                                       content_type: ["image/jpg","image/jpeg","image/png"]
   has_many :diaries
   has_many :reviews
+  has_many :likes
 end

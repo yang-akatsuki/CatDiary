@@ -1,6 +1,11 @@
 class Diary < ActiveRecord::Base
   belongs_to :user
   has_many :reviews
+  has_many :likes, dependent: :destroy
+
+  def like_user(user_id)
+   likes.find_by(user_id: user_id)
+  end
 
   def self.fetch_twitter
     client = Twitter::REST::Client.new do |config|
